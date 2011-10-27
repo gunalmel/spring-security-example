@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- Convenience subclass of UrlBasedViewResolver that supports TilesView (i.e. Tiles definitions) and custom subclasses of it. -->
+	<!-- Don't forget to set the order if you declared other ViewResolvers -->
+	<!-- See http://static.springsource.org/spring/docs/3.0.x/javadoc-api/org/springframework/web/servlet/view/tiles2/TilesViewResolver.html  -->
+	<bean id="tilesviewResolver" class="org.springframework.web.servlet.view.tiles2.TilesViewResolver" 
+			p:order="0"/>
+	
+	<!-- Helper class to configure Tiles 2.x for the Spring Framework -->
+	<!-- See http://static.springsource.org/spring/docs/3.0.x/javadoc-api/org/springframework/web/servlet/view/tiles2/TilesConfigurer.html -->
+	<!-- The actual tiles templates are in the tiles-definitions.xml -->
+	<bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
+		<property name="definitions">
+			<list>
+				<value>/WEB-INF/tiles.xml</value>
+			</list>
+		</property>
+	</bean> 
+
+<!-- 	<beans:bean id="viewResolver" -->
+<!-- 		class="org.springframework.web.servlet.view.UrlBasedViewResolver"> -->
+<!-- 		<beans:property name="viewClass"> -->
+<!-- 			<beans:value> -->
+<!-- 				org.springframework.web.servlet.view.tiles2.TilesView -->
+<!-- 			</beans:value> -->
+<!-- 		</beans:property> -->
+<!-- 	</beans:bean> -->
+<!-- 	<beans:bean id="tilesConfigurer" -->
+<!-- 		class="org.springframework.web.servlet.view.tiles2.TilesConfigurer"> -->
+<!-- 		<beans:property name="definitions"> -->
+<!-- 			<beans:list> -->
+<!-- 				<beans:value>/WEB-INF/tiles.xml</beans:value> -->
+<!-- 			</beans:list> -->
+<!-- 		</beans:property> -->
+<!-- 	</beans:bean> -->
+
+</beans>

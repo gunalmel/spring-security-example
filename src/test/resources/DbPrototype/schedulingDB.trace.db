@@ -1,0 +1,24 @@
+10-26 13:25:48 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "NSERT[*] INTO PUBLIC.USER_ROLE VALUES (6,3); "; SQL statement:
+nsert into public.user_role values (6,3); [42000-133]
+10-26 13:40:43 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Sequence "SEQ_ORGANIZATION" already exists; SQL statement:
+CREATE SEQUENCE PUBLIC.SEQ_ORGANIZATION START WITH 50 INCREMENT BY 1 [90035-133]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:316)
+	at org.h2.message.DbException.get(DbException.java:167)
+	at org.h2.message.DbException.get(DbException.java:144)
+	at org.h2.command.ddl.CreateSequence.update(CreateSequence.java:49)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:70)
+	at org.h2.command.Command.executeUpdate(Command.java:198)
+	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:124)
+	at org.h2.jdbc.JdbcStatement.executeUpdate(JdbcStatement.java:109)
+	at com.rp.sql.SQLManager.executeUpdate(Unknown Source)
+	at com.rp.sql.SQLManager.executeUpdate(Unknown Source)
+	at com.rp.gui.database.QueryUtil.executeQuery(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.rp.gui.util.CustomSwingWorker.construct(Unknown Source)
+	at com.rp.gui.util.SwingWorker$2.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)

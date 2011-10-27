@@ -1,0 +1,1028 @@
+09-26 12:26:36 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "INSERT INTO AUTHORITIES VALUES9[*]'gunalmel','pwd',TRUE) "; expected "., (, DIRECT, SORTED, DEFAULT, VALUES, SET, (, SELECT, FROM"; SQL statement:
+insert into authorities values9'gunalmel','pwd',true) [42001-160]
+09-26 12:26:43 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Column count does not match; SQL statement:
+insert into authorities values ('gunalmel','pwd',true) [21002-160]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:329)
+	at org.h2.message.DbException.get(DbException.java:169)
+	at org.h2.message.DbException.get(DbException.java:146)
+	at org.h2.message.DbException.get(DbException.java:135)
+	at org.h2.command.dml.Insert.prepare(Insert.java:226)
+	at org.h2.command.Parser.prepareCommand(Parser.java:218)
+	at org.h2.engine.Session.prepareLocal(Session.java:415)
+	at org.h2.engine.Session.prepareCommand(Session.java:364)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1119)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:164)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:152)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1311)
+	at org.h2.server.web.WebApp.query(WebApp.java:1001)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:964)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:967)
+	at org.h2.server.web.WebThread.process(WebThread.java:166)
+	at org.h2.server.web.WebThread.run(WebThread.java:93)
+	at java.lang.Thread.run(Thread.java:619)
+10-05 15:40:57 database: close
+org.h2.message.DbException: IO Exception: "java.io.EOFException"; "C:\JAVA_DEV\App_Servers\Tomcat\apache-tomcat-7.0.21\webapps\scheduling-web\WEB-INF\db\h2\schedulingDB.h2.db" [90031-160]
+	at org.h2.message.DbException.get(DbException.java:158)
+	at org.h2.message.DbException.convertIOException(DbException.java:315)
+	at org.h2.store.FileStore.readFully(FileStore.java:287)
+	at org.h2.store.PageStore.readPage(PageStore.java:1253)
+	at org.h2.store.PageStore.getPage(PageStore.java:707)
+	at org.h2.store.PageStreamTrunk$Iterator.next(PageStreamTrunk.java:247)
+	at org.h2.store.PageLog.free(PageLog.java:210)
+	at org.h2.store.PageStore.compact(PageStore.java:463)
+	at org.h2.engine.Database.closeOpenFilesAndUnlock(Database.java:1171)
+	at org.h2.engine.Database.close(Database.java:1121)
+	at org.h2.engine.Database.removeSession(Database.java:1000)
+	at org.h2.engine.Session.close(Session.java:563)
+	at org.h2.jdbc.JdbcConnection.close(JdbcConnection.java:363)
+	at com.mchange.v2.c3p0.impl.NewPooledConnection.close(NewPooledConnection.java:474)
+	at com.mchange.v2.c3p0.impl.NewPooledConnection.close(NewPooledConnection.java:191)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.destroyResource(C3P0PooledConnectionPool.java:470)
+	at com.mchange.v2.resourcepool.BasicResourcePool$1DestroyResourceTask.run(BasicResourcePool.java:964)
+	at com.mchange.v2.resourcepool.BasicResourcePool.destroyResource(BasicResourcePool.java:989)
+	at com.mchange.v2.resourcepool.BasicResourcePool.access$100(BasicResourcePool.java:32)
+	at com.mchange.v2.resourcepool.BasicResourcePool$5.run(BasicResourcePool.java:1174)
+Caused by: org.h2.jdbc.JdbcSQLException: IO Exception: "java.io.EOFException"; "C:\JAVA_DEV\App_Servers\Tomcat\apache-tomcat-7.0.21\webapps\scheduling-web\WEB-INF\db\h2\schedulingDB.h2.db" [90031-160]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:329)
+	... 20 more
+Caused by: java.io.EOFException
+	at java.io.RandomAccessFile.readFully(RandomAccessFile.java:383)
+	at org.h2.store.FileStore.readFully(FileStore.java:285)
+	... 17 more
+10-06 10:43:20 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Table "NOT" not found; SQL statement:
+select * from "NOT" [42102-133]
+10-06 10:43:20 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Table "NOT" not found; SQL statement:
+select * from "NOT" [42102-133]
+10-06 10:43:20 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Table "NULL" not found; SQL statement:
+select * from "NULL" [42102-133]
+10-06 10:43:20 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Table "NULL" not found; SQL statement:
+select * from "NULL" [42102-133]
+10-06 10:53:46 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE PUBLIC.ACCOUNT (
+	ID INTEGER NOT NULL,
+	USER_NAME VARCHAR(32) NOT NULL,
+	EMAIL VARCHAR(256),
+	PASSWORD_SALT VARCHAR(128) NOT NULL,
+	PASSWORD VARCHAR(128) NOT NULL,
+	PASSWORD_QUESTION VARCHAR(256) NOT NULL,
+	PASSWORD_ANSWER VARCHAR(128) NOT NULL.[*]
+	ENABLED BOOLEAN NOT NULL,
+	LOCKED BOOLEAN NOT NULL,
+	LAST_LOCK_OUT_DATE TIMESTAMP,
+	CREATED_DATE TIMESTAMP NOT NULL DEFAULT SYSTIMESTAMP,
+	LAST_LOGIN_DATE TIMESTAMP NOT NULL DEFAULT SYSTIMESTAMP,
+	LAST_PASSWORD_CHANGED_DATE TIMESTAMP NOT NULL DEFAULT SYSTIMESTAMP,
+	FAILED_PWD_WIN_START TIMESTAMP,
+	FAILED_PWD_ANSWER_WIN_START TIMESTAMP,
+	PRIMARY KEY (ID)
+)"; expected ")"; SQL statement:
+CREATE TABLE PUBLIC.ACCOUNT (
+	ID INTEGER NOT NULL,
+	USER_NAME VARCHAR(32) NOT NULL,
+	EMAIL VARCHAR(256),
+	PASSWORD_SALT VARCHAR(128) NOT NULL,
+	PASSWORD VARCHAR(128) NOT NULL,
+	PASSWORD_QUESTION VARCHAR(256) NOT NULL,
+	PASSWORD_ANSWER VARCHAR(128) NOT NULL.
+	ENABLED BOOLEAN NOT NULL,
+	LOCKED BOOLEAN NOT NULL,
+	LAST_LOCK_OUT_DATE TIMESTAMP,
+	CREATED_DATE TIMESTAMP NOT NULL DEFAULT SYSTIMESTAMP,
+	LAST_LOGIN_DATE TIMESTAMP NOT NULL DEFAULT SYSTIMESTAMP,
+	LAST_PASSWORD_CHANGED_DATE TIMESTAMP NOT NULL DEFAULT SYSTIMESTAMP,
+	FAILED_PWD_WIN_START TIMESTAMP,
+	FAILED_PWD_ANSWER_WIN_START TIMESTAMP,
+	PRIMARY KEY (ID)
+) [42001-133]
+10-06 10:54:07 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE PUBLIC.ACCOUNT (
+	ID INTEGER NOT NULL,
+	USER_NAME VARCHAR(32) NOT NULL,
+	EMAIL VARCHAR(256),
+	PASSWORD_SALT VARCHAR(128) NOT NULL,
+	PASSWORD VARCHAR(128) NOT NULL,
+	PASSWORD_QUESTION VARCHAR(256) NOT NULL,
+	PASSWORD_ANSWER VARCHAR(128) NOT NULL.[*]
+	ENABLED BOOLEAN NOT NULL,
+	LOCKED BOOLEAN NOT NULL,
+	LAST_LOCK_OUT_DATE TIMESTAMP,
+	CREATED_DATE TIMESTAMP NOT NULL DEFAULT SYSTIMESTAMP,
+	LAST_LOGIN_DATE TIMESTAMP NOT NULL DEFAULT SYSTIMESTAMP,
+	LAST_PASSWORD_CHANGED_DATE TIMESTAMP NOT NULL DEFAULT SYSTIMESTAMP,
+	FAILED_PWD_WIN_START TIMESTAMP,
+	FAILED_PWD_ANSWER_WIN_START TIMESTAMP,
+	PRIMARY KEY (ID)
+)"; expected ")"; SQL statement:
+CREATE TABLE PUBLIC.ACCOUNT (
+	ID INTEGER NOT NULL,
+	USER_NAME VARCHAR(32) NOT NULL,
+	EMAIL VARCHAR(256),
+	PASSWORD_SALT VARCHAR(128) NOT NULL,
+	PASSWORD VARCHAR(128) NOT NULL,
+	PASSWORD_QUESTION VARCHAR(256) NOT NULL,
+	PASSWORD_ANSWER VARCHAR(128) NOT NULL.
+	ENABLED BOOLEAN NOT NULL,
+	LOCKED BOOLEAN NOT NULL,
+	LAST_LOCK_OUT_DATE TIMESTAMP,
+	CREATED_DATE TIMESTAMP NOT NULL DEFAULT SYSTIMESTAMP,
+	LAST_LOGIN_DATE TIMESTAMP NOT NULL DEFAULT SYSTIMESTAMP,
+	LAST_PASSWORD_CHANGED_DATE TIMESTAMP NOT NULL DEFAULT SYSTIMESTAMP,
+	FAILED_PWD_WIN_START TIMESTAMP,
+	FAILED_PWD_ANSWER_WIN_START TIMESTAMP,
+	PRIMARY KEY (ID)
+) [42001-133]
+10-06 12:13:04 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Schema "SCHEDULINGDB" not found; SQL statement:
+select * from SCHEDULINGDB."PUBLIC.ROLE" [90079-133]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:316)
+	at org.h2.message.DbException.get(DbException.java:167)
+	at org.h2.message.DbException.get(DbException.java:144)
+	at org.h2.command.Parser.getSchema(Parser.java:599)
+	at org.h2.command.Parser.readTableOrView(Parser.java:4332)
+	at org.h2.command.Parser.readTableFilter(Parser.java:1000)
+	at org.h2.command.Parser.parseSelectSimpleFromPart(Parser.java:1528)
+	at org.h2.command.Parser.parseSelectSimple(Parser.java:1625)
+	at org.h2.command.Parser.parseSelectSub(Parser.java:1522)
+	at org.h2.command.Parser.parseSelectUnion(Parser.java:1367)
+	at org.h2.command.Parser.parseSelect(Parser.java:1355)
+	at org.h2.command.Parser.parsePrepared(Parser.java:395)
+	at org.h2.command.Parser.parse(Parser.java:278)
+	at org.h2.command.Parser.parse(Parser.java:250)
+	at org.h2.command.Parser.prepareCommand(Parser.java:222)
+	at org.h2.engine.Session.prepareLocal(Session.java:420)
+	at org.h2.engine.Session.prepareCommand(Session.java:381)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1071)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:70)
+	at com.rp.sql.SQLManager.getColumnData(Unknown Source)
+	at com.rp.sql.SQLManager.getColumnData(Unknown Source)
+	at com.rp.sql.Navigator.getColumnDataFailOver(Unknown Source)
+	at com.rp.sql.DatabaseNavigator.getColumns(Unknown Source)
+	at com.rp.sql.DatabaseNavigator.getColumns(Unknown Source)
+	at com.rp.sql.DDLGenerator.generateCreateTable(Unknown Source)
+	at com.rp.gui.database.ExportUtil.exportTableResults(Unknown Source)
+	at com.rp.gui.database.ExportUtil.exportMultipleTables(Unknown Source)
+	at com.rp.gui.database.action.objects.ExportObject.doPrintExportTables(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.rp.gui.util.CustomSwingWorker.construct(Unknown Source)
+	at com.rp.gui.util.SwingWorker$2.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+10-06 12:13:04 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Table "PUBLIC.ROLE" not found; SQL statement:
+select * from "PUBLIC.ROLE" [42102-133]
+10-06 12:43:44 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT NEXT_VALUE FROM $[*]INGRES.IISEQUENCES WHERE SEQ_NAME = 'SYSTEM_SEQUENCE_33620006_2FB6_4E71_B18F_B117F84A5792' AND SEQ_OWNER = 'PUBLIC' "; expected "identifier"; SQL statement:
+select next_value from $ingres.iisequences where seq_name = 'SYSTEM_SEQUENCE_33620006_2FB6_4E71_B18F_B117F84A5792' and seq_owner = 'PUBLIC' [42001-133]
+10-10 12:39:01 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "insert into public.user_account(id,user_name,email,password_salt,password,password_question,password_answer,enables,locked,comments) values(0,'administrator','gunalmel@med.umich.edu','01dc8f8613aefe48','408fb42b266374568db95f071c3e26cdb5963d811dab8d01879fdbf8353b8dac','For which organization are you working for?','223b1dbfb8240a3c30aa1c60b05be1cc19e979d4ccdc20aeb6ee8a3c3a295b7a',true,false,[*]""created for testing purposes)"; SQL statement:
+insert into public.user_account(id,user_name,email,password_salt,password,password_question,password_answer,enables,locked,comments) values(0,'administrator','gunalmel@med.umich.edu','01dc8f8613aefe48','408fb42b266374568db95f071c3e26cdb5963d811dab8d01879fdbf8353b8dac','For which organization are you working for?','223b1dbfb8240a3c30aa1c60b05be1cc19e979d4ccdc20aeb6ee8a3c3a295b7a',true,false,"created for testing purposes) [42000-133]
+10-10 12:39:58 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Column "ENABLES" not found; SQL statement:
+insert into public.user_account(id,user_name,email,password_salt,password,password_question,password_answer,enables,locked,comments) values(0,'administrator','gunalmel@med.umich.edu','01dc8f8613aefe48','408fb42b266374568db95f071c3e26cdb5963d811dab8d01879fdbf8353b8dac','For which organization are you working for?','223b1dbfb8240a3c30aa1c60b05be1cc19e979d4ccdc20aeb6ee8a3c3a295b7a',true,false,'Built-in user account for the administration of the application') [42122-133]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:316)
+	at org.h2.message.DbException.get(DbException.java:167)
+	at org.h2.message.DbException.get(DbException.java:144)
+	at org.h2.table.Table.getColumn(Table.java:538)
+	at org.h2.command.Parser.parseColumnList(Parser.java:747)
+	at org.h2.command.Parser.parseInsert(Parser.java:919)
+	at org.h2.command.Parser.parsePrepared(Parser.java:365)
+	at org.h2.command.Parser.parse(Parser.java:278)
+	at org.h2.command.Parser.parse(Parser.java:250)
+	at org.h2.command.Parser.prepareCommand(Parser.java:222)
+	at org.h2.engine.Session.prepareLocal(Session.java:420)
+	at org.h2.engine.Session.prepareCommand(Session.java:381)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1071)
+	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:120)
+	at org.h2.jdbc.JdbcStatement.executeUpdate(JdbcStatement.java:109)
+	at com.rp.sql.SQLManager.executeUpdate(Unknown Source)
+	at com.rp.sql.SQLManager.executeUpdate(Unknown Source)
+	at com.rp.gui.database.QueryUtil.executeQuery(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.rp.gui.util.CustomSwingWorker.construct(Unknown Source)
+	at com.rp.gui.util.SwingWorker$2.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+10-10 12:40:19 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Column "ENABLES" not found; SQL statement:
+INSERT
+	INTO public.user_account(id,
+	user_name,
+	email,
+	password_salt,
+	password,
+	password_question,
+	password_answer,
+	enables,
+	locked,
+	comments)
+VALUES
+	(0,
+	'administrator',
+	'gunalmel@med.umich.edu',
+	'01dc8f8613aefe48',
+	'408fb42b266374568db95f071c3e26cdb5963d811dab8d01879fdbf8353b8dac',
+	'For which organization are you working for?',
+	'223b1dbfb8240a3c30aa1c60b05be1cc19e979d4ccdc20aeb6ee8a3c3a295b7a',
+	true,
+	false,
+	'Built-in user account for the administration of the application') [42122-133]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:316)
+	at org.h2.message.DbException.get(DbException.java:167)
+	at org.h2.message.DbException.get(DbException.java:144)
+	at org.h2.table.Table.getColumn(Table.java:538)
+	at org.h2.command.Parser.parseColumnList(Parser.java:747)
+	at org.h2.command.Parser.parseInsert(Parser.java:919)
+	at org.h2.command.Parser.parsePrepared(Parser.java:365)
+	at org.h2.command.Parser.parse(Parser.java:278)
+	at org.h2.command.Parser.parse(Parser.java:250)
+	at org.h2.command.Parser.prepareCommand(Parser.java:222)
+	at org.h2.engine.Session.prepareLocal(Session.java:420)
+	at org.h2.engine.Session.prepareCommand(Session.java:381)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1071)
+	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:120)
+	at org.h2.jdbc.JdbcStatement.executeUpdate(JdbcStatement.java:109)
+	at com.rp.sql.SQLManager.executeUpdate(Unknown Source)
+	at com.rp.sql.SQLManager.executeUpdate(Unknown Source)
+	at com.rp.gui.database.QueryUtil.executeQuery(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.rp.gui.util.CustomSwingWorker.construct(Unknown Source)
+	at com.rp.gui.util.SwingWorker$2.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+10-11 09:59:05 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Table "user_account" not found; SQL statement:
+select * from "user_account" [42102-133]
+10-11 09:59:05 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Table "user_account" not found; SQL statement:
+select * from "user_account" [42102-133]
+10-11 09:59:05 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Table "set" not found; SQL statement:
+select * from "set" [42102-133]
+10-11 09:59:05 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Table "set" not found; SQL statement:
+select * from "set" [42102-133]
+10-11 09:59:38 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Column "LAST_LOCKOUT_DATE" not found; SQL statement:
+update user_account set last_lockout_date=systimestamp-36525000 [42122-133]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:316)
+	at org.h2.message.DbException.get(DbException.java:167)
+	at org.h2.message.DbException.get(DbException.java:144)
+	at org.h2.table.Table.getColumn(Table.java:538)
+	at org.h2.command.Parser.readTableColumn(Parser.java:632)
+	at org.h2.command.Parser.parseUpdate(Parser.java:661)
+	at org.h2.command.Parser.parsePrepared(Parser.java:417)
+	at org.h2.command.Parser.parse(Parser.java:278)
+	at org.h2.command.Parser.parse(Parser.java:250)
+	at org.h2.command.Parser.prepareCommand(Parser.java:222)
+	at org.h2.engine.Session.prepareLocal(Session.java:420)
+	at org.h2.engine.Session.prepareCommand(Session.java:381)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1071)
+	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:120)
+	at org.h2.jdbc.JdbcStatement.executeUpdate(JdbcStatement.java:109)
+	at com.rp.sql.SQLManager.executeUpdate(Unknown Source)
+	at com.rp.sql.SQLManager.executeUpdate(Unknown Source)
+	at com.rp.gui.database.QueryUtil.executeQuery(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.rp.gui.util.CustomSwingWorker.construct(Unknown Source)
+	at com.rp.gui.util.SwingWorker$2.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+10-11 10:00:04 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Column "LAST_LOCKOUT_DATE" not found; SQL statement:
+update user_account set last_lockout_date=systimestamp()-36525000 [42122-133]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:316)
+	at org.h2.message.DbException.get(DbException.java:167)
+	at org.h2.message.DbException.get(DbException.java:144)
+	at org.h2.table.Table.getColumn(Table.java:538)
+	at org.h2.command.Parser.readTableColumn(Parser.java:632)
+	at org.h2.command.Parser.parseUpdate(Parser.java:661)
+	at org.h2.command.Parser.parsePrepared(Parser.java:417)
+	at org.h2.command.Parser.parse(Parser.java:278)
+	at org.h2.command.Parser.parse(Parser.java:250)
+	at org.h2.command.Parser.prepareCommand(Parser.java:222)
+	at org.h2.engine.Session.prepareLocal(Session.java:420)
+	at org.h2.engine.Session.prepareCommand(Session.java:381)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1071)
+	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:120)
+	at org.h2.jdbc.JdbcStatement.executeUpdate(JdbcStatement.java:109)
+	at com.rp.sql.SQLManager.executeUpdate(Unknown Source)
+	at com.rp.sql.SQLManager.executeUpdate(Unknown Source)
+	at com.rp.gui.database.QueryUtil.executeQuery(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.rp.gui.util.CustomSwingWorker.construct(Unknown Source)
+	at com.rp.gui.util.SwingWorker$2.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+10-11 10:00:15 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Column "LAST_LOCKOUT_DATE" not found; SQL statement:
+update user_account set last_lockout_date=current_timestamp()-36525000 [42122-133]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:316)
+	at org.h2.message.DbException.get(DbException.java:167)
+	at org.h2.message.DbException.get(DbException.java:144)
+	at org.h2.table.Table.getColumn(Table.java:538)
+	at org.h2.command.Parser.readTableColumn(Parser.java:632)
+	at org.h2.command.Parser.parseUpdate(Parser.java:661)
+	at org.h2.command.Parser.parsePrepared(Parser.java:417)
+	at org.h2.command.Parser.parse(Parser.java:278)
+	at org.h2.command.Parser.parse(Parser.java:250)
+	at org.h2.command.Parser.prepareCommand(Parser.java:222)
+	at org.h2.engine.Session.prepareLocal(Session.java:420)
+	at org.h2.engine.Session.prepareCommand(Session.java:381)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1071)
+	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:120)
+	at org.h2.jdbc.JdbcStatement.executeUpdate(JdbcStatement.java:109)
+	at com.rp.sql.SQLManager.executeUpdate(Unknown Source)
+	at com.rp.sql.SQLManager.executeUpdate(Unknown Source)
+	at com.rp.gui.database.QueryUtil.executeQuery(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.rp.gui.util.CustomSwingWorker.construct(Unknown Source)
+	at com.rp.gui.util.SwingWorker$2.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+10-11 10:00:22 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Column "LAST_LOCKOUT_DATE" not found; SQL statement:
+update user_account set last_lockout_date=(current_timestamp()-36525000) [42122-133]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:316)
+	at org.h2.message.DbException.get(DbException.java:167)
+	at org.h2.message.DbException.get(DbException.java:144)
+	at org.h2.table.Table.getColumn(Table.java:538)
+	at org.h2.command.Parser.readTableColumn(Parser.java:632)
+	at org.h2.command.Parser.parseUpdate(Parser.java:661)
+	at org.h2.command.Parser.parsePrepared(Parser.java:417)
+	at org.h2.command.Parser.parse(Parser.java:278)
+	at org.h2.command.Parser.parse(Parser.java:250)
+	at org.h2.command.Parser.prepareCommand(Parser.java:222)
+	at org.h2.engine.Session.prepareLocal(Session.java:420)
+	at org.h2.engine.Session.prepareCommand(Session.java:381)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1071)
+	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:120)
+	at org.h2.jdbc.JdbcStatement.executeUpdate(JdbcStatement.java:109)
+	at com.rp.sql.SQLManager.executeUpdate(Unknown Source)
+	at com.rp.sql.SQLManager.executeUpdate(Unknown Source)
+	at com.rp.gui.database.QueryUtil.executeQuery(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.rp.gui.util.CustomSwingWorker.construct(Unknown Source)
+	at com.rp.gui.util.SwingWorker$2.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+10-11 10:01:18 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Column "FAILED_PWD_ANSWER_START" not found; SQL statement:
+update user_account set failed_pwd_answer_start=(systimestamp()-36525000) [42122-133]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:316)
+	at org.h2.message.DbException.get(DbException.java:167)
+	at org.h2.message.DbException.get(DbException.java:144)
+	at org.h2.table.Table.getColumn(Table.java:538)
+	at org.h2.command.Parser.readTableColumn(Parser.java:632)
+	at org.h2.command.Parser.parseUpdate(Parser.java:661)
+	at org.h2.command.Parser.parsePrepared(Parser.java:417)
+	at org.h2.command.Parser.parse(Parser.java:278)
+	at org.h2.command.Parser.parse(Parser.java:250)
+	at org.h2.command.Parser.prepareCommand(Parser.java:222)
+	at org.h2.engine.Session.prepareLocal(Session.java:420)
+	at org.h2.engine.Session.prepareCommand(Session.java:381)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1071)
+	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:120)
+	at org.h2.jdbc.JdbcStatement.executeUpdate(JdbcStatement.java:109)
+	at com.rp.sql.SQLManager.executeUpdate(Unknown Source)
+	at com.rp.sql.SQLManager.executeUpdate(Unknown Source)
+	at com.rp.gui.database.QueryUtil.executeQuery(Unknown Source)
+	at sun.reflect.GeneratedMethodAccessor26.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.rp.gui.util.CustomSwingWorker.construct(Unknown Source)
+	at com.rp.gui.util.SwingWorker$2.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+10-11 10:06:07 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Cannot parse timestamp constant "0", cause: "format yyyy-mm-dd"; SQL statement:
+update user_account set failed_pwd_answer_win_start=(systimestamp()-systimestamp()); [90011-133]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:316)
+	at org.h2.message.DbException.get(DbException.java:167)
+	at org.h2.util.DateTimeUtils.parseDateTime(DateTimeUtils.java:257)
+	at org.h2.value.ValueTimestamp.parseTimestamp(ValueTimestamp.java:81)
+	at org.h2.value.Value.convertTo(Value.java:752)
+	at org.h2.table.Column.convert(Column.java:146)
+	at org.h2.command.dml.Update.update(Update.java:100)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:70)
+	at org.h2.command.Command.executeUpdate(Command.java:198)
+	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:124)
+	at org.h2.jdbc.JdbcStatement.executeUpdate(JdbcStatement.java:109)
+	at com.rp.sql.SQLManager.executeUpdate(Unknown Source)
+	at com.rp.sql.SQLManager.executeUpdate(Unknown Source)
+	at com.rp.gui.database.QueryUtil.executeQuery(Unknown Source)
+	at sun.reflect.GeneratedMethodAccessor26.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.rp.gui.util.CustomSwingWorker.construct(Unknown Source)
+	at com.rp.gui.util.SwingWorker$2.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+10-11 10:08:10 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "UPDATE USER_ACCOUNT SET FAILED_PWD_ANSWER_WIN_START=PARSEDATETIME('00/00/0000'.[*]'MM/DD/YYYY'); "; expected ")"; SQL statement:
+update user_account set failed_pwd_answer_win_start=PARSEDATETIME('00/00/0000'.'MM/DD/YYYY'); [42001-133]
+10-11 10:08:29 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CALL PARSEDATETIME('00/00/0000'.[*]'MM/DD/YYYY') "; expected ")"; SQL statement:
+call PARSEDATETIME('00/00/0000'.'MM/DD/YYYY') [42001-133]
+10-11 10:10:12 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT PARSEDATETIME('00/00/0000'.[*]'MM/DD/YYYY') FROM DUAL "; expected ")"; SQL statement:
+select PARSEDATETIME('00/00/0000'.'MM/DD/YYYY') from dual [42001-133]
+10-11 10:10:19 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Column "CALL" not found; SQL statement:
+select call PARSEDATETIME('00/00/0000'.'MM/DD/YYYY') from dual [42122-133]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:316)
+	at org.h2.message.DbException.get(DbException.java:167)
+	at org.h2.message.DbException.get(DbException.java:144)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:126)
+	at org.h2.expression.Alias.optimize(Alias.java:47)
+	at org.h2.command.dml.Select.prepare(Select.java:713)
+	at org.h2.command.Parser.prepareCommand(Parser.java:223)
+	at org.h2.engine.Session.prepareLocal(Session.java:420)
+	at org.h2.engine.Session.prepareCommand(Session.java:381)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1071)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:70)
+	at com.rp.sql.SQLManager.executeSelect(Unknown Source)
+	at com.rp.sql.SQLManager.executeSelect(Unknown Source)
+	at com.rp.gui.database.QueryRunner.executeSelect(Unknown Source)
+	at com.rp.gui.database.QueryRunner.executeQuery(Unknown Source)
+	at com.rp.gui.database.QueryRunner.executeQuery(Unknown Source)
+	at com.rp.gui.database.QueryUtil.executeQuery(Unknown Source)
+	at sun.reflect.GeneratedMethodAccessor26.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.rp.gui.util.CustomSwingWorker.construct(Unknown Source)
+	at com.rp.gui.util.SwingWorker$2.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+10-11 10:11:12 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CALL PARSEDATETIME('00/00/0000'.[*]'MM/DD/YYYY') "; expected ")"; SQL statement:
+call PARSEDATETIME('00/00/0000'.'MM/DD/YYYY') [42001-133]
+10-11 10:11:56 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CALL PARSEDATETIME('00/00/0000'.[*]'MM/dd/yyyy') "; expected ")"; SQL statement:
+call PARSEDATETIME('00/00/0000'.'MM/dd/yyyy') [42001-133]
+10-11 10:12:26 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "call PARSEDATETIME('00/00/0000'.'MM/dd/yyyy','en',GMT[*]')"; SQL statement:
+call PARSEDATETIME('00/00/0000'.'MM/dd/yyyy','en',GMT') [42000-133]
+10-11 10:13:23 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Error parsing "Sat, 3 Feb 2001 03:05:06 GMT"; SQL statement:
+CALL PARSEDATETIME('Sat, 3 Feb 2001 03:05:06 GMT','MM/dd/yyyy', 'en', 'GMT') [90014-133]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:316)
+	at org.h2.message.DbException.get(DbException.java:156)
+	at org.h2.util.DateTimeUtils.parseDateTime(DateTimeUtils.java:530)
+	at org.h2.expression.Function.getValueWithArgs(Function.java:1028)
+	at org.h2.expression.Function.getValue(Function.java:416)
+	at org.h2.expression.Function.optimize(Function.java:1732)
+	at org.h2.command.dml.Call.prepare(Call.java:86)
+	at org.h2.command.Parser.prepareCommand(Parser.java:223)
+	at org.h2.engine.Session.prepareLocal(Session.java:420)
+	at org.h2.engine.Session.prepareCommand(Session.java:381)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1071)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:163)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:151)
+	at com.rp.sql.SQLManager.execute(Unknown Source)
+	at com.rp.sql.SQLManager.execute(Unknown Source)
+	at com.rp.gui.database.QueryUtil.executeQuery(Unknown Source)
+	at sun.reflect.GeneratedMethodAccessor26.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.rp.gui.util.CustomSwingWorker.construct(Unknown Source)
+	at com.rp.gui.util.SwingWorker$2.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.text.ParseException: Unparseable date: "Sat, 3 Feb 2001 03:05:06 GMT"
+	at java.text.DateFormat.parse(Unknown Source)
+	at org.h2.util.DateTimeUtils.parseDateTime(DateTimeUtils.java:526)
+	... 19 more
+10-11 10:20:28 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Table "AUTHORITIES" not found; SQL statement:
+DROP TABLE PUBLIC.AUTHORITIES [42102-133]
+10-11 10:20:54 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Table "USER_ACCOUNT" not found; SQL statement:
+DROP TABLE PUBLIC.USER_ACCOUNT [42102-133]
+10-11 10:21:41 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Sequence "SEQ_ROLE" already exists; SQL statement:
+CREATE SEQUENCE PUBLIC.SEQ_ROLE START WITH 0 INCREMENT BY 1 [90035-133]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:316)
+	at org.h2.message.DbException.get(DbException.java:167)
+	at org.h2.message.DbException.get(DbException.java:144)
+	at org.h2.command.ddl.CreateSequence.update(CreateSequence.java:49)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:70)
+	at org.h2.command.Command.executeUpdate(Command.java:198)
+	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:124)
+	at org.h2.jdbc.JdbcStatement.executeUpdate(JdbcStatement.java:109)
+	at com.rp.sql.SQLManager.executeUpdate(Unknown Source)
+	at com.rp.sql.SQLManager.executeUpdate(Unknown Source)
+	at com.rp.gui.database.QueryUtil.executeQuery(Unknown Source)
+	at sun.reflect.GeneratedMethodAccessor26.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.rp.gui.util.CustomSwingWorker.construct(Unknown Source)
+	at com.rp.gui.util.SwingWorker$2.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+10-11 10:22:14 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Table "USER_ACCOUNT" not found; SQL statement:
+select * from user_account [42102-133]
+10-11 10:38:18 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Error parsing "10/13/2011 10:30:00 PM"; SQL statement:
+CALL PARSEDATETIME('10/13/2011 10:30:00 PM','MM/dd/yyyy HH24:mm:ss', 'en', 'GMT') [90014-133]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:316)
+	at org.h2.message.DbException.get(DbException.java:156)
+	at org.h2.util.DateTimeUtils.parseDateTime(DateTimeUtils.java:530)
+	at org.h2.expression.Function.getValueWithArgs(Function.java:1028)
+	at org.h2.expression.Function.getValue(Function.java:416)
+	at org.h2.expression.Function.optimize(Function.java:1732)
+	at org.h2.command.dml.Call.prepare(Call.java:86)
+	at org.h2.command.Parser.prepareCommand(Parser.java:223)
+	at org.h2.engine.Session.prepareLocal(Session.java:420)
+	at org.h2.engine.Session.prepareCommand(Session.java:381)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1071)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:163)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:151)
+	at com.rp.sql.SQLManager.execute(Unknown Source)
+	at com.rp.sql.SQLManager.execute(Unknown Source)
+	at com.rp.gui.database.QueryUtil.executeQuery(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.rp.gui.util.CustomSwingWorker.construct(Unknown Source)
+	at com.rp.gui.util.SwingWorker$2.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.text.ParseException: Unparseable date: "10/13/2011 10:30:00 PM"
+	at java.text.DateFormat.parse(Unknown Source)
+	at org.h2.util.DateTimeUtils.parseDateTime(DateTimeUtils.java:526)
+	... 20 more
+10-11 10:38:23 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Error parsing "10/13/2011 10:30:00"; SQL statement:
+CALL PARSEDATETIME('10/13/2011 10:30:00','MM/dd/yyyy HH24:mm:ss', 'en', 'GMT') [90014-133]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:316)
+	at org.h2.message.DbException.get(DbException.java:156)
+	at org.h2.util.DateTimeUtils.parseDateTime(DateTimeUtils.java:530)
+	at org.h2.expression.Function.getValueWithArgs(Function.java:1028)
+	at org.h2.expression.Function.getValue(Function.java:416)
+	at org.h2.expression.Function.optimize(Function.java:1732)
+	at org.h2.command.dml.Call.prepare(Call.java:86)
+	at org.h2.command.Parser.prepareCommand(Parser.java:223)
+	at org.h2.engine.Session.prepareLocal(Session.java:420)
+	at org.h2.engine.Session.prepareCommand(Session.java:381)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1071)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:163)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:151)
+	at com.rp.sql.SQLManager.execute(Unknown Source)
+	at com.rp.sql.SQLManager.execute(Unknown Source)
+	at com.rp.gui.database.QueryUtil.executeQuery(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.rp.gui.util.CustomSwingWorker.construct(Unknown Source)
+	at com.rp.gui.util.SwingWorker$2.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.text.ParseException: Unparseable date: "10/13/2011 10:30:00"
+	at java.text.DateFormat.parse(Unknown Source)
+	at org.h2.util.DateTimeUtils.parseDateTime(DateTimeUtils.java:526)
+	... 20 more
+10-11 10:38:53 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Error parsing "MM/dd/yyyy HH:mm:ssAM/en/GMT"; SQL statement:
+CALL PARSEDATETIME('10/13/2011 10:30:00PM','MM/dd/yyyy HH:mm:ssAM', 'en', 'GMT') [90014-133]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:316)
+	at org.h2.message.DbException.get(DbException.java:156)
+	at org.h2.util.DateTimeUtils.getDateFormat(DateTimeUtils.java:555)
+	at org.h2.util.DateTimeUtils.parseDateTime(DateTimeUtils.java:523)
+	at org.h2.expression.Function.getValueWithArgs(Function.java:1028)
+	at org.h2.expression.Function.getValue(Function.java:416)
+	at org.h2.expression.Function.optimize(Function.java:1732)
+	at org.h2.command.dml.Call.prepare(Call.java:86)
+	at org.h2.command.Parser.prepareCommand(Parser.java:223)
+	at org.h2.engine.Session.prepareLocal(Session.java:420)
+	at org.h2.engine.Session.prepareCommand(Session.java:381)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1071)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:163)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:151)
+	at com.rp.sql.SQLManager.execute(Unknown Source)
+	at com.rp.sql.SQLManager.execute(Unknown Source)
+	at com.rp.gui.database.QueryUtil.executeQuery(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.rp.gui.util.CustomSwingWorker.construct(Unknown Source)
+	at com.rp.gui.util.SwingWorker$2.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalArgumentException: Illegal pattern character 'A'
+	at java.text.SimpleDateFormat.compile(Unknown Source)
+	at java.text.SimpleDateFormat.initialize(Unknown Source)
+	at java.text.SimpleDateFormat.<init>(Unknown Source)
+	at org.h2.util.DateTimeUtils.getDateFormat(DateTimeUtils.java:548)
+	... 21 more
+10-11 10:38:57 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Error parsing "MM/dd/yyyy HH:mm:ss AM/en/GMT"; SQL statement:
+CALL PARSEDATETIME('10/13/2011 10:30:00PM','MM/dd/yyyy HH:mm:ss AM', 'en', 'GMT') [90014-133]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:316)
+	at org.h2.message.DbException.get(DbException.java:156)
+	at org.h2.util.DateTimeUtils.getDateFormat(DateTimeUtils.java:555)
+	at org.h2.util.DateTimeUtils.parseDateTime(DateTimeUtils.java:523)
+	at org.h2.expression.Function.getValueWithArgs(Function.java:1028)
+	at org.h2.expression.Function.getValue(Function.java:416)
+	at org.h2.expression.Function.optimize(Function.java:1732)
+	at org.h2.command.dml.Call.prepare(Call.java:86)
+	at org.h2.command.Parser.prepareCommand(Parser.java:223)
+	at org.h2.engine.Session.prepareLocal(Session.java:420)
+	at org.h2.engine.Session.prepareCommand(Session.java:381)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1071)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:163)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:151)
+	at com.rp.sql.SQLManager.execute(Unknown Source)
+	at com.rp.sql.SQLManager.execute(Unknown Source)
+	at com.rp.gui.database.QueryUtil.executeQuery(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.rp.gui.util.CustomSwingWorker.construct(Unknown Source)
+	at com.rp.gui.util.SwingWorker$2.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalArgumentException: Illegal pattern character 'A'
+	at java.text.SimpleDateFormat.compile(Unknown Source)
+	at java.text.SimpleDateFormat.initialize(Unknown Source)
+	at java.text.SimpleDateFormat.<init>(Unknown Source)
+	at org.h2.util.DateTimeUtils.getDateFormat(DateTimeUtils.java:548)
+	... 21 more
+10-11 10:42:19 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SYSTEM[*].GETPROPERTIES().LIST(SYSTEM.OUT); "; expected "SELECT, SET, SAVEPOINT, SCRIPT, SHUTDOWN, SHOW, {"; SQL statement:
+System.getProperties().list(System.out); [42001-133]
+10-11 10:42:26 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Column "SYSTEM.GETPROPERTIES" not found; SQL statement:
+call System.getProperties().list(System.out); [42122-133]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:316)
+	at org.h2.message.DbException.get(DbException.java:167)
+	at org.h2.message.DbException.get(DbException.java:144)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:126)
+	at org.h2.command.dml.Call.prepare(Call.java:86)
+	at org.h2.command.Parser.prepareCommand(Parser.java:223)
+	at org.h2.engine.Session.prepareLocal(Session.java:420)
+	at org.h2.engine.Session.prepareCommand(Session.java:381)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1071)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:163)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:151)
+	at com.rp.sql.SQLManager.execute(Unknown Source)
+	at com.rp.sql.SQLManager.execute(Unknown Source)
+	at com.rp.gui.database.QueryUtil.executeQuery(Unknown Source)
+	at sun.reflect.GeneratedMethodAccessor41.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.rp.gui.util.CustomSwingWorker.construct(Unknown Source)
+	at com.rp.gui.util.SwingWorker$2.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+10-11 10:44:22 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Table "TEST" not found; SQL statement:
+select cast(date '2042-10-12' as timestamp) from test [42102-133]
+10-11 10:46:24 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Cannot parse timestamp constant "2011-12-25 12:30", cause: "format hh:mm:ss"; SQL statement:
+call timestamp '2011-12-25 12:30' [90011-133]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:316)
+	at org.h2.message.DbException.get(DbException.java:167)
+	at org.h2.util.DateTimeUtils.parseDateTime(DateTimeUtils.java:270)
+	at org.h2.value.ValueTimestamp.parseTimestamp(ValueTimestamp.java:81)
+	at org.h2.command.Parser.readTerm(Parser.java:2290)
+	at org.h2.command.Parser.readFactor(Parser.java:1865)
+	at org.h2.command.Parser.readSum(Parser.java:1852)
+	at org.h2.command.Parser.readConcat(Parser.java:1825)
+	at org.h2.command.Parser.readCondition(Parser.java:1699)
+	at org.h2.command.Parser.readAnd(Parser.java:1680)
+	at org.h2.command.Parser.readExpression(Parser.java:1672)
+	at org.h2.command.Parser.parserCall(Parser.java:3649)
+	at org.h2.command.Parser.parsePrepared(Parser.java:316)
+	at org.h2.command.Parser.parse(Parser.java:278)
+	at org.h2.command.Parser.parse(Parser.java:250)
+	at org.h2.command.Parser.prepareCommand(Parser.java:222)
+	at org.h2.engine.Session.prepareLocal(Session.java:420)
+	at org.h2.engine.Session.prepareCommand(Session.java:381)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1071)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:163)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:151)
+	at com.rp.sql.SQLManager.execute(Unknown Source)
+	at com.rp.sql.SQLManager.execute(Unknown Source)
+	at com.rp.gui.database.QueryUtil.executeQuery(Unknown Source)
+	at sun.reflect.GeneratedMethodAccessor41.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.rp.gui.util.CustomSwingWorker.construct(Unknown Source)
+	at com.rp.gui.util.SwingWorker$2.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+10-11 10:46:33 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Column "DATETIMESTAMP" not found; SQL statement:
+call datetimestamp '2011-12-25 12:30' [42122-133]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:316)
+	at org.h2.message.DbException.get(DbException.java:167)
+	at org.h2.message.DbException.get(DbException.java:144)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:126)
+	at org.h2.command.dml.Call.prepare(Call.java:86)
+	at org.h2.command.Parser.prepareCommand(Parser.java:223)
+	at org.h2.engine.Session.prepareLocal(Session.java:420)
+	at org.h2.engine.Session.prepareCommand(Session.java:381)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1071)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:163)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:151)
+	at com.rp.sql.SQLManager.execute(Unknown Source)
+	at com.rp.sql.SQLManager.execute(Unknown Source)
+	at com.rp.gui.database.QueryUtil.executeQuery(Unknown Source)
+	at sun.reflect.GeneratedMethodAccessor41.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.rp.gui.util.CustomSwingWorker.construct(Unknown Source)
+	at com.rp.gui.util.SwingWorker$2.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+10-11 10:46:42 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CALL DATE '2011-12-25 12:30' AS[*] TIMESTAMP "; SQL statement:
+call date '2011-12-25 12:30' as timestamp [42000-133]
+10-11 10:52:15 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Error parsing "MM/dd/yyyy HH:mm:ss EST/en/EST"; SQL statement:
+CALL PARSEDATETIME('10/13/2011 11:30:00PM','MM/dd/yyyy HH:mm:ss EST', 'en', 'EST') [90014-133]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:316)
+	at org.h2.message.DbException.get(DbException.java:156)
+	at org.h2.util.DateTimeUtils.getDateFormat(DateTimeUtils.java:555)
+	at org.h2.util.DateTimeUtils.parseDateTime(DateTimeUtils.java:523)
+	at org.h2.expression.Function.getValueWithArgs(Function.java:1028)
+	at org.h2.expression.Function.getValue(Function.java:416)
+	at org.h2.expression.Function.optimize(Function.java:1732)
+	at org.h2.command.dml.Call.prepare(Call.java:86)
+	at org.h2.command.Parser.prepareCommand(Parser.java:223)
+	at org.h2.engine.Session.prepareLocal(Session.java:420)
+	at org.h2.engine.Session.prepareCommand(Session.java:381)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1071)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:163)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:151)
+	at com.rp.sql.SQLManager.execute(Unknown Source)
+	at com.rp.sql.SQLManager.execute(Unknown Source)
+	at com.rp.gui.database.QueryUtil.executeQuery(Unknown Source)
+	at sun.reflect.GeneratedMethodAccessor41.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.rp.gui.util.CustomSwingWorker.construct(Unknown Source)
+	at com.rp.gui.util.SwingWorker$2.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalArgumentException: Illegal pattern character 'T'
+	at java.text.SimpleDateFormat.compile(Unknown Source)
+	at java.text.SimpleDateFormat.initialize(Unknown Source)
+	at java.text.SimpleDateFormat.<init>(Unknown Source)
+	at org.h2.util.DateTimeUtils.getDateFormat(DateTimeUtils.java:548)
+	... 20 more
+10-11 10:52:38 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Error parsing "MM/dd/yyyy HH:mm:ss EST/en/GMT"; SQL statement:
+CALL PARSEDATETIME('10/13/2011 11:30:00PM','MM/dd/yyyy HH:mm:ss EST', 'en', 'GMT') [90014-133]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:316)
+	at org.h2.message.DbException.get(DbException.java:156)
+	at org.h2.util.DateTimeUtils.getDateFormat(DateTimeUtils.java:555)
+	at org.h2.util.DateTimeUtils.parseDateTime(DateTimeUtils.java:523)
+	at org.h2.expression.Function.getValueWithArgs(Function.java:1028)
+	at org.h2.expression.Function.getValue(Function.java:416)
+	at org.h2.expression.Function.optimize(Function.java:1732)
+	at org.h2.command.dml.Call.prepare(Call.java:86)
+	at org.h2.command.Parser.prepareCommand(Parser.java:223)
+	at org.h2.engine.Session.prepareLocal(Session.java:420)
+	at org.h2.engine.Session.prepareCommand(Session.java:381)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1071)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:163)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:151)
+	at com.rp.sql.SQLManager.execute(Unknown Source)
+	at com.rp.sql.SQLManager.execute(Unknown Source)
+	at com.rp.gui.database.QueryUtil.executeQuery(Unknown Source)
+	at sun.reflect.GeneratedMethodAccessor41.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.rp.gui.util.CustomSwingWorker.construct(Unknown Source)
+	at com.rp.gui.util.SwingWorker$2.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalArgumentException: Illegal pattern character 'T'
+	at java.text.SimpleDateFormat.compile(Unknown Source)
+	at java.text.SimpleDateFormat.initialize(Unknown Source)
+	at java.text.SimpleDateFormat.<init>(Unknown Source)
+	at org.h2.util.DateTimeUtils.getDateFormat(DateTimeUtils.java:548)
+	... 20 more
+10-11 10:54:13 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALL[*] PARSEDATETIME('01/00/0000 00:00:00 EST','MM/dd/yyyy HH:mm:ss', 'en', 'EST') "; expected "ALTER, ANALYZE, {"; SQL statement:
+all PARSEDATETIME('01/00/0000 00:00:00 EST','MM/dd/yyyy HH:mm:ss', 'en', 'EST') [42001-133]
+10-11 11:39:28 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Table "user" not found; SQL statement:
+select * from "user" [42102-133]
+10-11 11:39:28 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Table "user" not found; SQL statement:
+select * from "user" [42102-133]
+10-11 11:41:43 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "INSERT
+	INTO PUBLIC.USER_ACCOUNT(ID,
+	USER_NAME,
+	EMAIL,
+	PASSWORD_SALT,
+	PASSWORD,
+	PASSWORD_QUESTION,
+	PASSWORD_ANSWER,
+	ENABLED,
+	LOCKED,
+	LAST_LOCK_OUT_DATE,
+	LAST_LOGIN_DATE,
+	LAST_PASSWORD_CHANGED_DATE,
+	FAILED_PWD_WIN_START,
+	FAILED_PWD_ANSWER_WIN_START,
+	COMMENTS)
+VALUES
+	(1,
+	'gunalmel',
+	'gunalmel@yahoo.com',
+	'29d14dc9c10785bd',       
+	'9ac55e8b87fdb3ea13c179fe8b2177ccdb12e19a29943ca7bd0cca8d4af1f126',      
+	'For which organization are you working for?',               
+	'0189aa9169f5be91651df11f7c8da582053753c3868c38eaac24f60c7c56135f',            
+	TRUE,          
+	FALSE,         
+	PARSEDATETIME('01/01/0000 12:00:00 EST','MM/dd/yyyy HH:mm:ss', 'en', 'EST'),                   
+	CURRENT_TIMESTAMP(),                 
+	CURRENT_TIMESTAMP(),                            
+	PARSEDATETIME('01/01/0000 12:00:00 EST','MM/dd/yyyy HH:mm:ss', 'en', 'EST'),                      
+	PARSEDATETIME('01/01/0000 12:00:00 EST','MM/dd/yyyy HH:mm:ss', 'en', 'EST'),                             
+	'Developer account created for testing purposes in thee Organization_Admin role'           ; "; expected ")"; SQL statement:
+INSERT
+	INTO public.user_account(id,
+	user_name,
+	email,
+	password_salt,
+	password,
+	password_question,
+	password_answer,
+	enabled,
+	locked,
+	last_lock_out_date,
+	last_login_date,
+	last_password_changed_date,
+	failed_pwd_win_start,
+	failed_pwd_answer_win_start,
+	comments)
+VALUES
+	(1,
+	'gunalmel',
+	'gunalmel@yahoo.com',
+	'29d14dc9c10785bd', --salt
+	'9ac55e8b87fdb3ea13c179fe8b2177ccdb12e19a29943ca7bd0cca8d4af1f126', --pwd
+	'For which organization are you working for?', --pwd question
+	'0189aa9169f5be91651df11f7c8da582053753c3868c38eaac24f60c7c56135f',--pwd_answer
+	true, --enabled
+	false, --locked
+	PARSEDATETIME('01/01/0000 12:00:00 EST','MM/dd/yyyy HH:mm:ss', 'en', 'EST'),--las_lock_out_date
+	current_timestamp(),--last_login_date
+	current_timestamp(),--last_password_changed_date
+	PARSEDATETIME('01/01/0000 12:00:00 EST','MM/dd/yyyy HH:mm:ss', 'en', 'EST'),--failed_pwd_win_start
+	PARSEDATETIME('01/01/0000 12:00:00 EST','MM/dd/yyyy HH:mm:ss', 'en', 'EST'),--failed_pwd_answer_win_start
+	'Developer account created for testing purposes in thee Organization_Admin role'--comments); [42001-133]
+10-11 11:56:13 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Table "yr" not found; SQL statement:
+select * from "yr" [42102-133]
+10-11 11:56:13 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Table "yr" not found; SQL statement:
+select * from "yr" [42102-133]
+10-11 11:58:11 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Table "has" not found; SQL statement:
+select * from "has" [42102-133]
+10-11 11:58:11 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Table "has" not found; SQL statement:
+select * from "has" [42102-133]
+10-11 11:58:11 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Table "expired" not found; SQL statement:
+select * from "expired" [42102-133]
+10-11 11:58:11 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Table "expired" not found; SQL statement:
+select * from "expired" [42102-133]
+10-11 12:00:16 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "INSERT
+	INTO PUBLIC.USER_ACCOUNT(ID,
+	USER_NAME,
+	EMAIL,
+	PASSWORD_SALT,
+	PASSWORD,
+	PASSWORD_QUESTION,
+	PASSWORD_ANSWER,
+	ENABLED,
+	LOCKED,
+	LAST_LOCK_OUT_DATE,
+	CREATED_DATE,
+	LAST_LOGIN_DATE,
+	LAST_PASSWORD_CHANGED_DATE,
+	FAILED_PWD_WIN_START,
+	FAILED_PWD_ANSWER_WIN_START,
+	COMMENTS)
+VALUES
+	(9,
+	'test_pwdans_locked',
+	'test_pwdans_locked@yahoo.com',
+	'357f1034f68b4107',       
+	'b6906bb76be4516143af0c7e2e7a50df8f67a31b0ee36d82b0da9bb36a351e2b',      
+	'For which organization are you working for?',               
+	'22bf9aaf79f9db5e06ad731d95c44e392dbfdd7e5f61a40ec15a41975ca8652c',            
+	FALSE,          
+	TRUE,         
+	CURRENT_TIMESTAMP()-55/60/24,                    
+	CURRENT_TIMESTAMP()-1461,                                                   
+	CURRENT_TIMESTAMP()-100,                 
+	CURRENT_TIMESTAMP()-100,                            
+	PARSEDATETIME('01/01/0000 12:00:00 EST','MM/dd/yyyy HH:mm:ss', 'en', 'EST'),                      
+	CURRENT_TIMESTAMP()-1/24-,[*]                             
+	'Test user account in External_Scheduler role. Password has expired and the user needs to reset it when the user logs in with the old password for the first time after pwd has expired.)'          
+	) "; expected "SELECT, FROM"; SQL statement:
+INSERT
+	INTO public.user_account(id,
+	user_name,
+	email,
+	password_salt,
+	password,
+	password_question,
+	password_answer,
+	enabled,
+	locked,
+	last_lock_out_date,
+	created_date,
+	last_login_date,
+	last_password_changed_date,
+	failed_pwd_win_start,
+	failed_pwd_answer_win_start,
+	comments)
+VALUES
+	(9,
+	'test_pwdans_locked',
+	'test_pwdans_locked@yahoo.com',
+	'357f1034f68b4107', --salt
+	'b6906bb76be4516143af0c7e2e7a50df8f67a31b0ee36d82b0da9bb36a351e2b', --pwd
+	'For which organization are you working for?', --pwd question
+	'22bf9aaf79f9db5e06ad731d95c44e392dbfdd7e5f61a40ec15a41975ca8652c',--pwd_answer
+	false, --enabled
+	true, --locked
+	current_timestamp()-55/60/24,--last_lock_out_date
+	current_timestamp()-1461, --created_date, set to 2 years before current date
+	current_timestamp()-100,--last_login_date
+	current_timestamp()-100,--last_password_changed_date
+	PARSEDATETIME('01/01/0000 12:00:00 EST','MM/dd/yyyy HH:mm:ss', 'en', 'EST'),--failed_pwd_win_start
+	current_timestamp()-1/24-,--failed_pwd_answer_win_start
+	'Test user account in External_Scheduler role. Password has expired and the user needs to reset it when the user logs in with the old password for the first time after pwd has expired.)'--comments
+	) [42001-133]
+10-11 12:04:40 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Table "user_account" not found; SQL statement:
+select * from "user_account" [42102-133]
+10-11 12:04:40 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Table "user_account" not found; SQL statement:
+select * from "user_account" [42102-133]
+10-11 12:05:09 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Table "account" not found; SQL statement:
+select * from "account" [42102-133]
+10-11 12:05:09 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Table "account" not found; SQL statement:
+select * from "account" [42102-133]
+10-24 11:43:11 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Sequence "SEQ_ROLE" already exists; SQL statement:
+CREATE SEQUENCE PUBLIC.SEQ_ROLE START WITH 50 INCREMENT BY 1 [90035-160]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:329)
+	at org.h2.message.DbException.get(DbException.java:169)
+	at org.h2.message.DbException.get(DbException.java:146)
+	at org.h2.command.ddl.CreateSequence.update(CreateSequence.java:50)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:73)
+	at org.h2.command.Command.executeUpdate(Command.java:219)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:177)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:152)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1311)
+	at org.h2.server.web.WebApp.query(WebApp.java:1001)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:964)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:967)
+	at org.h2.server.web.WebThread.process(WebThread.java:166)
+	at org.h2.server.web.WebThread.run(WebThread.java:93)
+	at java.lang.Thread.run(Thread.java:619)
+10-24 11:43:11 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Sequence "SEQ_USER_ACCOUNT" already exists; SQL statement:
+CREATE SEQUENCE PUBLIC.SEQ_USER_ACCOUNT START WITH 50 INCREMENT BY 1 [90035-160]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:329)
+	at org.h2.message.DbException.get(DbException.java:169)
+	at org.h2.message.DbException.get(DbException.java:146)
+	at org.h2.command.ddl.CreateSequence.update(CreateSequence.java:50)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:73)
+	at org.h2.command.Command.executeUpdate(Command.java:219)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:177)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:152)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1311)
+	at org.h2.server.web.WebApp.query(WebApp.java:1001)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:964)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:967)
+	at org.h2.server.web.WebThread.process(WebThread.java:166)
+	at org.h2.server.web.WebThread.run(WebThread.java:93)
+	at java.lang.Thread.run(Thread.java:619)

@@ -1,0 +1,2 @@
+Sql scripts here are used to set up a test database with complete application schema and seed data. Db Unit test seed data is independent of the data inserted by seed data scripts here.
+Scripts located here provides a complete data foundation that will be available to all tests. However, Db Unit tests data can be specified per unit test method.

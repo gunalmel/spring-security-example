@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:sec="http://www.springframework.org/schema/security"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+<!-- Spring Security Related Config Starts -->
+	<sec:authentication-manager alias="authManager">
+		<sec:authentication-provider ref="daoAuthenticationProvider"/>
+	</sec:authentication-manager>
+
+	<bean id="daoAuthenticationProvider" class="org.springframework.security.authentication.dao.DaoAuthenticationProvider">
+	    <property name="userDetailsService" ref="userDetailsService"/>
+	    <property name="saltSource" ref="saltSource"/>
+	    <property name="passwordEncoder" ref="passwordEncoder"/>
+	</bean>
+
+	<bean id="userDetailsService" class="edu.umich.med.michr.scheduling.service.security.DatabaseUserDetailsService"/>
+	<bean id="passwordEncoder" class="edu.umich.med.michr.scheduling.service.security.EncryptionService" />
+	<bean id="saltSource" class="org.springframework.security.authentication.dao.ReflectionSaltSource"
+		p:userPropertyToUse="passwordSalt" />
+
+	<!-- Spring Security Related Config Ends -->
+</beans>

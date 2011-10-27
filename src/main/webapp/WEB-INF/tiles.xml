@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+    <definition name="base.definition" template="/WEB-INF/views/master-views/layout.jsp">
+        <put-attribute name="title" value="" />
+        <put-attribute name="header" value="/WEB-INF/views/master-views/header.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/master-views/menu.jsp" />
+        <put-attribute name="body" value="" />
+        <put-attribute name="footer" value="/WEB-INF/views/master-views/footer.jsp" />
+    </definition>
+	<!-- Definition name should match the view name returned by the controller -->
+    <definition name="secure/Administrator/**" extends="base.definition">
+        <put-attribute name="title" value="Welcome to MICHR Research Participant Scheduling Portal" />
+        <put-attribute name="body" value="/WEB-INF/views/secure/Administrator/home.jsp" />
+    </definition>
+ 
+</tiles-definitions>

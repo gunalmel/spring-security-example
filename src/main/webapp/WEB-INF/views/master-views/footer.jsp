@@ -1,0 +1,1 @@
+<p>Copyright &copy; ViralPatel.net</p>
